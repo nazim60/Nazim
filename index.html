@@ -5,113 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nazim Uddin | Official Portfolio</title>
     <style>
-        /* Internal CSS to ensure it works without internet or external scripts */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #ffffff; color: #000000; line-height: 1.6; }
-        
-        /* Layout Containers */
         .container { width: 90%; max-width: 1000px; margin: 0 auto; }
         
         /* Header */
-        header { padding: 30px 0; border-bottom: 2px solid #000; position: sticky; top: 0; background: #fff; z-index: 100; }
-        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 24px; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; }
-        .nav-links a { margin-left: 20px; text-decoration: none; color: #000; font-size: 12px; font-weight: 700; text-transform: uppercase; }
-
-        /* Hero Section */
-        .hero { background-color: #000; color: #fff; padding: 100px 0; min-height: 80vh; display: flex; align-items: center; }
-        .hero h1 { font-size: 50px; line-height: 1.1; margin-bottom: 20px; text-transform: uppercase; font-weight: 900; }
-        .hero p { font-size: 18px; color: #888; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
-        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; }
-        .btn-white { background: #fff; color: #000; padding: 15px 35px; text-decoration: none; font-weight: 900; font-size: 12px; text-transform: uppercase; }
-        .btn-outline { border: 1px solid #fff; color: #fff; padding: 15px 35px; text-decoration: none; font-weight: 900; font-size: 12px; text-transform: uppercase; }
-
-        /* Content Sections */
-        .section { padding: 80px 0; }
-        .label { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 5px; display: block; margin-bottom: 20px; color: #000; }
-        .section-title { font-size: 32px; font-weight: 900; text-transform: uppercase; margin-bottom: 30px; line-height: 1.2; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        header { padding: 40px 0; border-bottom: 1px solid #eee; }
+        .logo { font-size: 24px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
         
-        /* Services */
-        .service-box { border: 2px solid #000; padding: 40px; transition: 0.3s; }
-        .service-box:hover { background: #000; color: #fff; }
-        .service-box h4 { margin-bottom: 15px; font-size: 20px; text-transform: uppercase; }
-        .service-box p { font-size: 14px; color: #666; }
-        .service-box:hover p { color: #ccc; }
+        /* Hero Section */
+        .hero { background-color: #000; color: #fff; padding: 80px 0; text-align: left; }
+        .hero-label { font-size: 14px; text-transform: uppercase; letter-spacing: 3px; color: #888; margin-bottom: 20px; display: block; }
+        .hero h1 { font-size: clamp(32px, 8vw, 64px); line-height: 1.1; font-weight: 800; margin-bottom: 30px; text-transform: uppercase; }
+        .hero p { font-size: 18px; color: #ccc; max-width: 600px; margin-bottom: 40px; }
+        
+        /* Buttons */
+        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; }
+        .btn { padding: 15px 35px; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; transition: 0.3s; cursor: pointer; border: 2px solid #fff; }
+        .btn-white { background-color: #fff; color: #000; }
+        .btn-outline { background-color: transparent; color: #fff; }
+        .btn:hover { opacity: 0.8; }
 
+        /* About & Expertise */
+        .section { padding: 80px 0; border-bottom: 1px solid #eee; }
+        .section-label { font-size: 12px; text-transform: uppercase; letter-spacing: 4px; font-weight: 700; margin-bottom: 30px; display: block; }
+        .section h2 { font-size: 32px; font-weight: 800; margin-bottom: 25px; text-transform: uppercase; }
+        .section p { font-size: 17px; color: #444; margin-bottom: 20px; max-width: 800px; }
+        
+        /* Expertise Grid */
+        .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .expertise-card { border: 2px solid #000; padding: 40px; transition: 0.3s; }
+        .expertise-card:hover { background-color: #000; color: #fff; }
+        .expertise-card h3 { font-size: 20px; text-transform: uppercase; margin-bottom: 15px; }
+        
         /* Footer */
-        footer { background: #000; color: #fff; padding: 60px 0; text-align: center; }
-        .footer-links { margin-bottom: 30px; }
-        .footer-links a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
-        .copy { font-size: 9px; color: #444; text-transform: uppercase; letter-spacing: 3px; }
+        footer { padding: 60px 0; background-color: #000; color: #fff; text-align: center; }
+        .social-links { margin-bottom: 30px; display: flex; justify-content: center; gap: 25px; }
+        .social-links a { color: #fff; text-decoration: none; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #555; padding-bottom: 5px; }
+        .copyright { font-size: 10px; color: #666; letter-spacing: 1px; }
 
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 35px; }
-            .grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-        }
+        @media (max-width: 768px) { .hero { padding: 60px 0; } }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container nav-flex">
+        <div class="container">
             <div class="logo">Nazim Uddin</div>
-            <nav class="nav-links">
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#contact">Contact</a>
-            </nav>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
-            <p>Digital Creator</p>
-            <h1>Empowering Your <br>Digital Presence</h1>
+            <span class="hero-label">Digital Creator</span>
+            <h1>Empowering Your Digital Presence</h1>
+            <p>Strategy, Creativity & AI Innovation for the Modern Era. Helping brands tell their stories through high-impact digital experiences.</p>
             <div class="btn-group">
-                <a href="#about" class="btn-white">Learn More</a>
-                <a href="#contact" class="btn-outline">Contact Me</a>
+                <a href="https://www.linkedin.com/in/naziimlinkdein" class="btn btn-white">Learn More</a>
+                <a href="https://www.facebook.com/share/1DBsiciGKD/" class="btn btn-outline">Contact Me</a>
             </div>
         </div>
     </section>
 
-    <section id="about" class="section">
+    <section class="section">
         <div class="container">
-            <span class="label">The Visionary</span>
-            <h3 class="section-title">Digital Creator & <br>Future Entrepreneur</h3>
-            <div class="grid">
-                <p>As a Digital Creator, I specialize in bridging the gap between technology and creative storytelling. My focus lies in utilizing AI-driven tools to build high-impact digital experiences.</p>
-                <p>I believe every brand has a unique story. My mission is to translate that narrative into a global digital authority through precise strategy and minimal design.</p>
-            </div>
+            <span class="section-label">The Visionary</span>
+            <h2>Digital Creator & Future Entrepreneur</h2>
+            <p>As a Digital Creator, I specialize in bridging the gap between technology and creative storytelling. My focus lies in utilizing AI-driven tools to build high-impact digital experiences.</p>
+            <p>I believe every brand has a unique story. My mission is to translate that narrative into a global digital authority through precise strategy and minimal design.</p>
         </div>
     </section>
 
-    <section id="services" class="section" style="background-color: #f9f9f9; border-top: 1px solid #eee;">
+    <section class="section">
         <div class="container">
-            <span class="label">Expertise</span>
-            <div class="grid">
-                <div class="service-box">
-                    <h4>Content Strategy</h4>
+            <span class="section-label">Expertise</span>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3>Content Strategy</h3>
                     <p>End-to-end planning for digital storytelling and audience engagement through data-driven insights.</p>
                 </div>
-                <div class="service-box">
-                    <h4>AI Consulting</h4>
+                <div class="expertise-card">
+                    <h3>AI Consulting</h3>
                     <p>Integration of high-end AI tools to streamline business processes and elevate creative production.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer id="contact">
+    <footer>
         <div class="container">
-            <div class="footer-links">
-                <a href="#">Facebook</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">X-Twitter</a>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1DBsiciGKD/" target="_blank">Facebook</a>
+                <a href="https://www.linkedin.com/in/naziimlinkdein" target="_blank">LinkedIn</a>
+                <a href="https://www.instagram.com/naziminsta1998?igsh=MTgxOGVuYTRvNzd6aA==" target="_blank">Instagram</a>
             </div>
-            <p class="copy">&copy; 2026 NAZIM UDDIN. ALL RIGHTS RESERVED.</p>
+            <div class="copyright">
+                © 2026 NAZIM UDDIN. ALL RIGHTS RESERVED.
+            </div>
         </div>
     </footer>
 
