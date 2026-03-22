@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nazim Uddin | Official Portfolio</title>
+    <style>
+        /* Internal CSS to ensure it works without internet or external scripts */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #ffffff; color: #000000; line-height: 1.6; }
+        
+        /* Layout Containers */
+        .container { width: 90%; max-width: 1000px; margin: 0 auto; }
+        
+        /* Header */
+        header { padding: 30px 0; border-bottom: 2px solid #000; position: sticky; top: 0; background: #fff; z-index: 100; }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; }
+        .nav-links a { margin-left: 20px; text-decoration: none; color: #000; font-size: 12px; font-weight: 700; text-transform: uppercase; }
+
+        /* Hero Section */
+        .hero { background-color: #000; color: #fff; padding: 100px 0; min-height: 80vh; display: flex; align-items: center; }
+        .hero h1 { font-size: 50px; line-height: 1.1; margin-bottom: 20px; text-transform: uppercase; font-weight: 900; }
+        .hero p { font-size: 18px; color: #888; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
+        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; }
+        .btn-white { background: #fff; color: #000; padding: 15px 35px; text-decoration: none; font-weight: 900; font-size: 12px; text-transform: uppercase; }
+        .btn-outline { border: 1px solid #fff; color: #fff; padding: 15px 35px; text-decoration: none; font-weight: 900; font-size: 12px; text-transform: uppercase; }
+
+        /* Content Sections */
+        .section { padding: 80px 0; }
+        .label { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 5px; display: block; margin-bottom: 20px; color: #000; }
+        .section-title { font-size: 32px; font-weight: 900; text-transform: uppercase; margin-bottom: 30px; line-height: 1.2; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        
+        /* Services */
+        .service-box { border: 2px solid #000; padding: 40px; transition: 0.3s; }
+        .service-box:hover { background: #000; color: #fff; }
+        .service-box h4 { margin-bottom: 15px; font-size: 20px; text-transform: uppercase; }
+        .service-box p { font-size: 14px; color: #666; }
+        .service-box:hover p { color: #ccc; }
+
+        /* Footer */
+        footer { background: #000; color: #fff; padding: 60px 0; text-align: center; }
+        .footer-links { margin-bottom: 30px; }
+        .footer-links a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+        .copy { font-size: 9px; color: #444; text-transform: uppercase; letter-spacing: 3px; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 35px; }
+            .grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-flex">
+            <div class="logo">Nazim Uddin</div>
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <p>Digital Creator</p>
+            <h1>Empowering Your <br>Digital Presence</h1>
+            <div class="btn-group">
+                <a href="#about" class="btn-white">Learn More</a>
+                <a href="#contact" class="btn-outline">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <span class="label">The Visionary</span>
+            <h3 class="section-title">Digital Creator & <br>Future Entrepreneur</h3>
+            <div class="grid">
+                <p>As a Digital Creator, I specialize in bridging the gap between technology and creative storytelling. My focus lies in utilizing AI-driven tools to build high-impact digital experiences.</p>
+                <p>I believe every brand has a unique story. My mission is to translate that narrative into a global digital authority through precise strategy and minimal design.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section" style="background-color: #f9f9f9; border-top: 1px solid #eee;">
+        <div class="container">
+            <span class="label">Expertise</span>
+            <div class="grid">
+                <div class="service-box">
+                    <h4>Content Strategy</h4>
+                    <p>End-to-end planning for digital storytelling and audience engagement through data-driven insights.</p>
+                </div>
+                <div class="service-box">
+                    <h4>AI Consulting</h4>
+                    <p>Integration of high-end AI tools to streamline business processes and elevate creative production.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Facebook</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">X-Twitter</a>
+            </div>
+            <p class="copy">&copy; 2026 NAZIM UDDIN. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
