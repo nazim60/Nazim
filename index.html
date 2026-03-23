@@ -139,10 +139,26 @@
         .project-info p { color: #666; font-size: 14px; margin-bottom: 15px; }
         .project-link { text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; color: #000; border-bottom: 1px solid #000; display: inline-block; }
         
-        /* Skills Section */
-        .skills-list { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 30px; }
-        .skill-tag { background: #f0f0f0; padding: 10px 24px; border-radius: 40px; font-weight: 600; font-size: 16px; color: #000; transition: 0.3s; border: 1px solid #ddd; }
-        .skill-tag:hover { background: #000; color: #fff; transform: translateY(-3px); }
+        /* Skills Section (Updated - Balanced Size) */
+        .skills-list { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 30px; }
+        .skill-tag {
+            background: #f0f0f0;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 15px;
+            color: #000;
+            transition: all 0.3s ease;
+            border: 1px solid #ddd;
+            letter-spacing: 0.3px;
+            display: inline-block;
+        }
+        .skill-tag:hover {
+            background: #000;
+            color: #fff;
+            transform: translateY(-3px);
+            border-color: #000;
+        }
         
         /* Contact Form */
         .contact-form { max-width: 600px; margin-top: 40px; display: flex; flex-direction: column; gap: 20px; }
@@ -162,36 +178,93 @@
         .about-image { flex: 1; min-width: 300px; text-align: center; }
         .about-image img { width: 100%; max-width: 450px; border-radius: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         
-        /* Footer */
-        footer { padding: 60px 0; background-color: #000; color: #fff; text-align: center; }
-        .social-links { margin-bottom: 30px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-        .social-links a { color: #fff; text-decoration: none; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; display: flex; align-items: center; border-bottom: 1px solid transparent; padding-bottom: 5px; }
-        .social-links a:hover { border-bottom: 1px solid #fff; }
-        .social-links a i { margin-right: 10px; font-size: 20px; transition: 0.3s; }
-        .social-links a:hover i { transform: scale(1.2); }
-        
-        /* Keep brand colors for icons on non-hover states, but on hover they become white (due to footer background) */
-        .fa-facebook-f { color: #1877F2; }
-        .fa-linkedin-in { color: #0077B5; }
-        .fa-instagram { 
-            background: -webkit-radial-gradient(30% 107%, circle, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        /* Enhanced Footer */
+        .site-footer {
+            background-color: #000;
+            color: #fff;
+            padding: 60px 0 30px;
+            margin-top: 0;
         }
-        .social-links a:hover .fa-facebook-f,
-        .social-links a:hover .fa-linkedin-in,
-        .social-links a:hover .fa-instagram {
-            -webkit-text-fill-color: white;
-            background: none;
-            color: white;
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 50px;
         }
-        
-        .copyright { font-size: 10px; color: #aaa; letter-spacing: 1px; margin-top: 20px; }
+        .footer-col {
+            flex: 1;
+            min-width: 180px;
+        }
+        .footer-col h4 {
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        .footer-social {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .footer-social a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s;
+        }
+        .footer-social a i {
+            font-size: 18px;
+            width: 24px;
+        }
+        .footer-social a:hover {
+            color: #fff;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #222;
+            font-size: 12px;
+            color: #666;
+        }
         
         @media (max-width: 768px) { 
             .hero { padding: 80px 0; }
             .btn-group { justify-content: center; }
             .hero p { margin-left: auto; margin-right: auto; }
+            .footer-grid {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            .footer-social {
+                align-items: center;
+            }
+            .footer-links li {
+                margin-bottom: 8px;
+            }
         }
     </style>
 </head>
@@ -327,28 +400,54 @@
         </form>
     </div>
 </section>
-    <footer class="fade-in">
+    <footer class="site-footer fade-in">
         <div class="container">
-            <div class="social-links">
-                <a href="https://www.facebook.com/nazimuddin1998" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-facebook-f"></i> Facebook
-                </a>
-                <a href="https://www.linkedin.com/in/naziimlinkdein" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-linkedin-in"></i> LinkedIn
-                </a>
-                <a href="https://www.instagram.com/naziminsta1998" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-instagram"></i> Instagram
-                </a>
+            <div class="footer-grid">
+                <!-- Column 1: Main Navigation -->
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Agency</a></li>
+                        <li><a href="#">Join 2026 Challenge</a></li>
+                        <li><a href="#">Projects</a></li>
+                    </ul>
+                </div>
+                <!-- Column 2: Support & Affiliate -->
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Success Stories</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Join as Affiliate</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3: Social & Connect -->
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/nazimuddin1998" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </a>
+                        <a href="https://www.instagram.com/naziminsta1998" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                        <a href="https://www.linkedin.com/in/naziimlinkdein" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin-in"></i> LinkedIn
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="copyright">
-                © <span id="current-year"></span> NAZIM UDDIN. ALL RIGHTS RESERVED.
+            <div class="footer-bottom">
+                <p>© <span id="footer-year"></span> Nazim Uddin. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Dynamic copyright year
-        document.getElementById('current-year').innerText = new Date().getFullYear();
+        // Dynamic copyright year for footer
+        document.getElementById('footer-year').innerText = new Date().getFullYear();
         
         // Fade-in animation observer
         const faders = document.querySelectorAll('.fade-in');
