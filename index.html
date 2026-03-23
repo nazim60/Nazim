@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Official portfolio of Nazim Uddin – Digital Creator, AI Consultant & Content Strategist. Empowering brands through high-impact digital experiences.">
+    <meta name="author" content="Nazim Uddin">
     <meta property="og:title" content="Nazim Uddin | Official Portfolio">
     <meta property="og:description" content="Digital Creator & Future Entrepreneur specializing in AI-driven storytelling and brand strategy.">
     <meta property="og:image" content="profile.png">
@@ -17,7 +18,19 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #ffffff; color: #000000; line-height: 1.6; overflow-x: hidden; }
-        .container { width: 90%; max-width: 1000px; margin: 0 auto; }
+        .container { width: 90%; max-width: 1100px; margin: 0 auto; }
+        
+        /* Scroll Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #000, #555);
+            z-index: 1000;
+            transition: width 0.1s ease-out;
+        }
         
         /* Header */
         header { padding: 20px 0; border-bottom: 1px solid #eee; }
@@ -28,43 +41,64 @@
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
         
-        /* Hero Section */
-        .hero { background-color: #000; color: #fff; padding: 80px 0; text-align: left; }
+        /* Hero Section (two‑column) */
+        .hero { background-color: #000; color: #fff; padding: 80px 0; }
+        .hero .container { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
+        .hero-content { flex: 1; min-width: 280px; }
+        .hero-image { flex: 1; min-width: 280px; text-align: center; }
+        .hero-image img { max-width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
         .hero-label { font-size: 14px; text-transform: uppercase; letter-spacing: 3px; color: #888; margin-bottom: 20px; display: block; }
-        .hero h1 { font-size: clamp(32px, 8vw, 64px); line-height: 1.1; font-weight: 800; margin-bottom: 30px; text-transform: uppercase; }
-        .hero p { font-size: 18px; color: #ccc; max-width: 600px; margin-bottom: 40px; }
+        .hero h1 { font-size: clamp(32px, 6vw, 52px); line-height: 1.2; font-weight: 800; margin-bottom: 20px; text-transform: uppercase; }
+        .typed-wrapper { font-size: clamp(24px, 5vw, 40px); font-weight: 700; margin-bottom: 20px; color: #ccc; }
+        #typed-text { color: #fff; border-right: 2px solid #fff; padding-right: 5px; }
+        .hero p { font-size: 18px; color: #ccc; max-width: 600px; margin-bottom: 30px; }
         
         /* Buttons */
-        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; }
-        .btn { padding: 15px 35px; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; transition: 0.3s; cursor: pointer; border: 2px solid #fff; display: inline-block; }
-        .btn-white { background-color: #fff; color: #000; }
-        .btn-outline { background-color: transparent; color: #fff; }
-        .btn:hover { opacity: 0.8; }
+        .btn-group { display: flex; gap: 20px; flex-wrap: wrap; }
+        .btn { padding: 14px 32px; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 1px; transition: 0.3s; cursor: pointer; border: 2px solid #fff; display: inline-block; border-radius: 4px; }
+        .btn-primary { background-color: #fff; color: #000; }
+        .btn-primary:hover { background-color: transparent; color: #fff; }
+        .btn-outline-light { background-color: transparent; color: #fff; }
+        .btn-outline-light:hover { background-color: #fff; color: #000; }
         .btn:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
         
         /* Sections */
         .section { padding: 80px 0; border-bottom: 1px solid #eee; }
-        .section-label { font-size: 12px; text-transform: uppercase; letter-spacing: 4px; font-weight: 700; margin-bottom: 30px; display: block; }
+        .section-label { font-size: 12px; text-transform: uppercase; letter-spacing: 4px; font-weight: 700; margin-bottom: 30px; display: block; color: #666; }
         .section h2 { font-size: 32px; font-weight: 800; margin-bottom: 25px; text-transform: uppercase; }
         .section p { font-size: 17px; color: #444; margin-bottom: 20px; max-width: 800px; }
         
         /* Expertise Grid */
         .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
-        .expertise-card { border: 2px solid #000; padding: 40px; transition: 0.3s; }
-        .expertise-card:hover { background-color: #000; color: #fff; }
+        .expertise-card { border: 2px solid #000; padding: 40px; transition: all 0.3s ease; background: #fff; }
+        .expertise-card:hover { background-color: #000; color: #fff; transform: translateY(-10px); }
         .expertise-card i { font-size: 35px; margin-bottom: 20px; display: block; transition: color 0.3s; }
         .expertise-card:hover i { color: #fff !important; }
         .expertise-card h3 { font-size: 20px; text-transform: uppercase; margin-bottom: 15px; }
+        
+        /* Projects Section */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .project-card { background: #f9f9f9; border-radius: 12px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .project-card:hover { transform: translateY(-8px); box-shadow: 0 20px 30px rgba(0,0,0,0.1); }
+        .project-img { height: 200px; background: #e0e0e0; display: flex; align-items: center; justify-content: center; font-size: 48px; color: #333; }
+        .project-info { padding: 20px; }
+        .project-info h3 { font-size: 20px; margin-bottom: 10px; }
+        .project-info p { color: #666; font-size: 14px; margin-bottom: 15px; }
+        .project-link { text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; color: #000; border-bottom: 1px solid #000; display: inline-block; }
+        
+        /* Skills Section */
+        .skills-list { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 30px; }
+        .skill-tag { background: #f0f0f0; padding: 10px 24px; border-radius: 40px; font-weight: 600; font-size: 16px; color: #000; transition: 0.3s; border: 1px solid #ddd; }
+        .skill-tag:hover { background: #000; color: #fff; transform: translateY(-3px); }
         
         /* Contact Form */
         .contact-form { max-width: 600px; margin-top: 40px; display: flex; flex-direction: column; gap: 20px; }
         .contact-form input, .contact-form textarea { width: 100%; padding: 15px; background-color: #f9f9f9; border: 1px solid #ddd; font-family: inherit; font-size: 16px; outline: none; transition: 0.3s; }
         .contact-form input:focus, .contact-form textarea:focus { border-color: #000; background-color: #fff; outline: 2px solid #000; outline-offset: 2px; }
-        .contact-form button { align-self: flex-start; background-color: #000; color: #fff; border: 2px solid #000; padding: 15px 35px; font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; cursor: pointer; transition: 0.3s; }
+        .contact-form button { align-self: flex-start; background-color: #000; color: #fff; border: 2px solid #000; padding: 15px 35px; font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; cursor: pointer; transition: 0.3s; border-radius: 4px; }
         .contact-form button:hover { background-color: #fff; color: #000; }
-        .contact-form button:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
         
-        /* Form feedback message */
+        /* Form feedback */
         .form-feedback { margin-top: 15px; padding: 10px; border-radius: 4px; font-size: 14px; display: none; }
         .form-feedback.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; display: block; }
         .form-feedback.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; display: block; }
@@ -75,7 +109,7 @@
         .about-image { flex: 1; min-width: 300px; text-align: center; }
         .about-image img { width: 100%; max-width: 450px; border-radius: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         
-        /* Footer & Official Brand Colors */
+        /* Footer */
         footer { padding: 60px 0; background-color: #000; color: #fff; text-align: center; }
         .social-links { margin-bottom: 30px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
         .social-links a { color: #fff; text-decoration: none; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; display: flex; align-items: center; border-bottom: 1px solid transparent; padding-bottom: 5px; }
@@ -101,11 +135,17 @@
         
         .copyright { font-size: 10px; color: #aaa; letter-spacing: 1px; margin-top: 20px; }
         
-        @media (max-width: 768px) { .hero { padding: 60px 0; } }
+        @media (max-width: 768px) { 
+            .hero { padding: 60px 0; }
+            .hero .container { flex-direction: column; text-align: center; }
+            .btn-group { justify-content: center; }
+            .hero p { margin-left: auto; margin-right: auto; }
+        }
     </style>
 </head>
 <body>
-     
+    <div class="progress-bar" id="progressBar"></div>
+    
     <header>
         <div class="container">
             <div class="logo">
@@ -116,12 +156,20 @@
 
     <section class="hero fade-in">
         <div class="container">
-            <span class="hero-label">Digital Creator</span>
-            <h1>Empowering Your Digital Presence</h1>
-            <p>Strategy, Creativity & AI Innovation for the Modern Era. Helping brands tell their stories through high-impact digital experiences.</p>
-            <div class="btn-group">
-                <a href="https://www.linkedin.com/in/naziimlinkdein?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="btn btn-white">LinkedIn</a>
-                <a href="https://www.facebook.com/share/1DBsiciGKD/" target="_blank" class="btn btn-outline">Facebook</a>
+            <div class="hero-content">
+                <span class="hero-label">Digital Creator</span>
+                <h1>Empowering Your Digital Presence</h1>
+                <div class="typed-wrapper">
+                    I'm a <span id="typed-text"></span>
+                </div>
+                <p>Strategy, Creativity & AI Innovation for the Modern Era. Helping brands tell their stories through high-impact digital experiences.</p>
+                <div class="btn-group">
+                    <a href="#contact" class="btn btn-primary">Hire Me</a>
+                    <a href="#contact" class="btn btn-outline-light">Start a Project</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="hero.jpg" alt="Nazim Uddin - Digital Creator" loading="lazy">
             </div>
         </div>
     </section>
@@ -163,6 +211,53 @@
         </div>
     </section>
 
+    <section class="section fade-in">
+        <div class="container">
+            <span class="section-label">Projects</span>
+            <h2>Featured Work</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-laptop-code"></i></div>
+                    <div class="project-info">
+                        <h3>AI Brand Dashboard</h3>
+                        <p>An interactive dashboard that uses AI to analyze brand sentiment and audience insights.</p>
+                        <a href="#" class="project-link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-video"></i></div>
+                    <div class="project-info">
+                        <h3>Creative Agency Reel</h3>
+                        <p>High‑impact video campaign that increased engagement by 200% for a lifestyle brand.</p>
+                        <a href="#" class="project-link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-chart-simple"></i></div>
+                    <div class="project-info">
+                        <h3>Growth Strategy for SaaS</h3>
+                        <p>Data‑driven marketing plan that tripled user acquisition in 6 months.</p>
+                        <a href="#" class="project-link">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section fade-in">
+        <div class="container">
+            <span class="section-label">Skills</span>
+            <h2>What I Bring to the Table</h2>
+            <div class="skills-list">
+                <span class="skill-tag">AI Tools</span>
+                <span class="skill-tag">Web Design</span>
+                <span class="skill-tag">Graphics Design</span>
+                <span class="skill-tag">Digital Marketing</span>
+                <span class="skill-tag">Branding</span>
+            </div>
+        </div>
+    </section>
+
     <section class="section fade-in" id="contact">
         <div class="container">
             <span class="section-label">Get In Touch</span>
@@ -182,17 +277,16 @@
     <footer class="fade-in">
         <div class="container">
             <div class="social-links">
-                <a href="https://www.facebook.com/share/1DBsiciGKD/" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.facebook.com/nazimuddin1998" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-facebook-f"></i> Facebook
                 </a>
-                <a href="https://www.linkedin.com/in/naziimlinkdein?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/naziimlinkdein" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-linkedin-in"></i> LinkedIn
                 </a>
-                <a href="https://www.instagram.com/naziminsta1998?igsh=MTgxOGVuYTRvNzd6aA==" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.instagram.com/naziminsta1998" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-instagram"></i> Instagram
                 </a>
             </div>
-            
             <div class="copyright">
                 © <span id="current-year"></span> NAZIM UDDIN. ALL RIGHTS RESERVED.
             </div>
@@ -215,53 +309,57 @@
         }, appearOptions);
         faders.forEach(fader => { appearOnScroll.observe(fader); });
         
-        // Form submission with fetch (improved UX)
+        // ========== TYPING EFFECT ==========
+        const phrases = ["Digital Creator", "AI Consultant", "Content Strategist", "Growth Marketer"];
+        let index = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typedSpan = document.getElementById("typed-text");
+        
+        function typeEffect() {
+            const currentPhrase = phrases[index];
+            if (isDeleting) {
+                typedSpan.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    index = (index + 1) % phrases.length;
+                    setTimeout(typeEffect, 500);
+                } else {
+                    setTimeout(typeEffect, 50);
+                }
+            } else {
+                typedSpan.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                if (charIndex === currentPhrase.length) {
+                    isDeleting = true;
+                    setTimeout(typeEffect, 2000);
+                } else {
+                    setTimeout(typeEffect, 100);
+                }
+            }
+        }
+        typeEffect();
+        
+        // ========== SCROLL PROGRESS BAR ==========
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+        
+        // ========== FORM SUBMISSION (FETCH) ==========
         const form = document.getElementById('contact-form');
         const feedbackDiv = document.getElementById('form-feedback');
         
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
-            // Disable button and show sending state
             const submitBtn = form.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.innerText;
+            const originalText = submitBtn.innerText;
             submitBtn.disabled = true;
             submitBtn.innerText = 'Sending...';
             feedbackDiv.className = 'form-feedback';
             feedbackDiv.style.display = 'none';
             
-            const formData = new FormData(form);
-            // Add hidden fields for FormSubmit
-            formData.append('_captcha', 'false');
-            formData.append('_next', window.location.href); // redirect back to same page after success (but we handle via fetch)
-            
-            try {
-                const response = await fetch('https://formsubmit.co/nazimfb1998@gmail.com', {
-                    method: 'POST',
-                    body: formData
-                });
-                
-                if (response.ok) {
-                    feedbackDiv.textContent = '✅ Message sent successfully! I will get back to you soon.';
-                    feedbackDiv.className = 'form-feedback success';
-                    form.reset();
-                } else {
-                    throw new Error('Server error');
-                }
-            } catch (error) {
-                feedbackDiv.textContent = '❌ Oops! Something went wrong. Please try again later or contact directly via email.';
-                feedbackDiv.className = 'form-feedback error';
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerText = originalBtnText;
-                feedbackDiv.style.display = 'block';
-                // Auto-hide after 5 seconds
-                setTimeout(() => {
-                    feedbackDiv.style.display = 'none';
-                }, 5000);
-            }
-        });
-    </script>
-    
-</body>
-</html>
+            const formData = new FormData(fo
