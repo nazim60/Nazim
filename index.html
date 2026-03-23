@@ -49,6 +49,12 @@
         .expertise-card { border: 2px solid #000; padding: 40px; transition: 0.3s; }
         .expertise-card:hover { background-color: #000; color: #fff; }
         .expertise-card h3 { font-size: 20px; text-transform: uppercase; margin-bottom: 15px; }
+                /* Contact Form */
+        .contact-form { max-width: 600px; margin-top: 40px; display: flex; flex-direction: column; gap: 20px; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 15px; background-color: #f9f9f9; border: 1px solid #ddd; font-family: inherit; font-size: 16px; outline: none; transition: 0.3s; }
+        .contact-form input:focus, .contact-form textarea:focus { border-color: #000; background-color: #fff; }
+        .contact-form button { align-self: flex-start; background-color: #000; color: #fff; border: 2px solid #000; padding: 15px 35px; font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; cursor: pointer; transition: 0.3s; }
+        .contact-form button:hover { background-color: #fff; color: #000; }
         
         /* Footer */
         footer { padding: 60px 0; background-color: #000; color: #fff; text-align: center; }
@@ -105,7 +111,25 @@
             </div>
         </div>
     </section>
-
+    <section class="section fade-in" id="contact">
+        <div class="container">
+            <span class="section-label">Get In Touch</span>
+            <h2>Let's Work Together</h2>
+            <p>Have a project in mind or want to discuss digital strategies? Drop a message below and I will get back to you.</p>
+            
+            <form action="https://formsubmit.co/nazimfb1998@gmail.com" method="POST" class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email Address" required>
+                <textarea name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://nazim60.github.io/Nazim/">
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+    
     <footer class="fade-in">
         <div class="container">
             <div class="social-links">
