@@ -23,6 +23,17 @@
     height: 100px; /* লোগোর সাইজ */
     width: auto; 
 }
+   /* --- Smooth Animations --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
         
         
         /* Hero Section */
@@ -117,6 +128,18 @@
             </div>
         </div>
     </footer>
-
+<script>
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('visible');
+            appearOnScroll.unobserve(entry.target);
+        });
+    }, appearOptions);
+    faders.forEach(fader => { appearOnScroll.observe(fader); });
+</script>
+    
 </body>
 </html>
