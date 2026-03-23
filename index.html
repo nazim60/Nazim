@@ -140,27 +140,9 @@
         .project-link { text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; color: #000; border-bottom: 1px solid #000; display: inline-block; }
         
         /* Skills Section */
-        <section class="section fade-in">
-    <div class="container">
-        <span class="section-label">Skills</span>
-        <h2>What I Bring to the Table</h2>
-        <div class="skills-list">
-            <span class="skill-tag">AI Consultant</span>
-            <span class="skill-tag">ChatGPT</span>
-            <span class="skill-tag">Prompt Engineering</span>
-            <span class="skill-tag">AI Content Creation</span>
-            <span class="skill-tag">Canva Design</span>
-            <span class="skill-tag">CapCut Editing</span>
-            <span class="skill-tag">Meta Ads</span>
-            <span class="skill-tag">Content Strategy</span>
-            <span class="skill-tag">Branding</span>
-            <span class="skill-tag">Landing Page Design</span>
-            <span class="skill-tag">HTML & CSS</span>
-            <span class="skill-tag">SEO Basics</span>
-            <span class="skill-tag">Copywriting</span>
-        </div>
-    </div>
-</section>
+        .skills-list { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 30px; }
+        .skill-tag { background: #f0f0f0; padding: 10px 24px; border-radius: 40px; font-weight: 600; font-size: 16px; color: #000; transition: 0.3s; border: 1px solid #ddd; }
+        .skill-tag:hover { background: #000; color: #fff; transform: translateY(-3px); }
         
         /* Contact Form */
         .contact-form { max-width: 600px; margin-top: 40px; display: flex; flex-direction: column; gap: 20px; }
@@ -223,7 +205,8 @@
             </div>
         </div>
     </header>
-        <section class="hero fade-in">
+
+    <section class="hero fade-in">
         <div class="container">
             <span class="hero-label">Digital Creator</span>
             <h1>Build. Scale. Dominate.<br>Your Digital Presence</h1>
@@ -237,107 +220,113 @@
             </div>
         </div>
     </section>
-
     <section class="section fade-in">
-        <div class="container about-wrapper">
-            <div class="about-text">
-                <span class="section-label">The Visionary</span>
-                <h2>Digital Creator & Future Entrepreneur</h2>
-                <p>As a Digital Creator, I specialize in bridging the gap between technology and creative storytelling. My focus lies in utilizing AI-driven tools to build high-impact digital experiences.</p>
-                <p>I believe every brand has a unique story. My mission is to translate that narrative into a global digital authority through precise strategy and minimal design.</p>
-            </div>
-            <div class="about-image">
-                <img src="profile.png" alt="Nazim Uddin - Digital Creator" loading="lazy">
-            </div>
+    <div class="container about-wrapper">
+        <div class="about-text">
+            <span class="section-label">The Visionary</span>
+            <h2>Digital Creator & Future Entrepreneur</h2>
+            <p>As a Digital Creator, I specialize in bridging the gap between technology and creative storytelling. My focus lies in utilizing AI-driven tools to build high-impact digital experiences.</p>
+            <p>I believe every brand has a unique story. My mission is to translate that narrative into a global digital authority through precise strategy and minimal design.</p>
         </div>
-    </section>
+        <div class="about-image">
+            <img src="profile.png" alt="Nazim Uddin - Digital Creator" loading="lazy">
+        </div>
+    </div>
+</section>
 
-    <section class="section fade-in">
-        <div class="container">
-            <span class="section-label">Expertise</span>
-            <div class="expertise-grid">
-                <div class="expertise-card">
-                    <i class="fas fa-bullhorn"></i>
-                    <h3>Content Strategy</h3>
-                    <p>End-to-end planning for digital storytelling and audience engagement through data-driven insights.</p>
+<section class="section fade-in">
+    <div class="container">
+        <span class="section-label">Expertise</span>
+        <div class="expertise-grid">
+            <div class="expertise-card">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Content Strategy</h3>
+                <p>End-to-end planning for digital storytelling and audience engagement through data-driven insights.</p>
+            </div>
+            <div class="expertise-card">
+                <i class="fas fa-robot"></i>
+                <h3>AI Consulting</h3>
+                <p>Integration of high-end AI tools to streamline business processes and elevate creative production.</p>
+            </div>
+            <div class="expertise-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Growth Marketing</h3>
+                <p>Data-backed strategies to scale your brand’s digital footprint and maximize ROI.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section fade-in">
+    <div class="container">
+        <span class="section-label">Projects</span>
+        <h2>Featured Work</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-img"><i class="fas fa-laptop-code"></i></div>
+                <div class="project-info">
+                    <h3>AI Brand Dashboard</h3>
+                    <p>An interactive dashboard that uses AI to analyze brand sentiment and audience insights.</p>
+                    <a href="#" class="project-link">Learn More →</a>
                 </div>
-                <div class="expertise-card">
-                    <i class="fas fa-robot"></i>
-                    <h3>AI Consulting</h3>
-                    <p>Integration of high-end AI tools to streamline business processes and elevate creative production.</p>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><i class="fas fa-video"></i></div>
+                <div class="project-info">
+                    <h3>Creative Agency Reel</h3>
+                    <p>High‑impact video campaign that increased engagement by 200% for a lifestyle brand.</p>
+                    <a href="#" class="project-link">Learn More →</a>
                 </div>
-                <div class="expertise-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Growth Marketing</h3>
-                    <p>Data-backed strategies to scale your brand’s digital footprint and maximize ROI.</p>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><i class="fas fa-chart-simple"></i></div>
+                <div class="project-info">
+                    <h3>Growth Strategy for SaaS</h3>
+                    <p>Data‑driven marketing plan that tripled user acquisition in 6 months.</p>
+                    <a href="#" class="project-link">Learn More →</a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="section fade-in">
-        <div class="container">
-            <span class="section-label">Projects</span>
-            <h2>Featured Work</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-img"><i class="fas fa-laptop-code"></i></div>
-                    <div class="project-info">
-                        <h3>AI Brand Dashboard</h3>
-                        <p>An interactive dashboard that uses AI to analyze brand sentiment and audience insights.</p>
-                        <a href="#" class="project-link">Learn More →</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img"><i class="fas fa-video"></i></div>
-                    <div class="project-info">
-                        <h3>Creative Agency Reel</h3>
-                        <p>High‑impact video campaign that increased engagement by 200% for a lifestyle brand.</p>
-                        <a href="#" class="project-link">Learn More →</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img"><i class="fas fa-chart-simple"></i></div>
-                    <div class="project-info">
-                        <h3>Growth Strategy for SaaS</h3>
-                        <p>Data‑driven marketing plan that tripled user acquisition in 6 months.</p>
-                        <a href="#" class="project-link">Learn More →</a>
-                    </div>
-                </div>
-            </div>
+<section class="section fade-in">
+    <div class="container">
+        <span class="section-label">Skills</span>
+        <h2>What I Bring to the Table</h2>
+        <div class="skills-list">
+            <span class="skill-tag">AI Consultant</span>
+            <span class="skill-tag">ChatGPT</span>
+            <span class="skill-tag">Prompt Engineering</span>
+            <span class="skill-tag">AI Content Creation</span>
+            <span class="skill-tag">Canva Design</span>
+            <span class="skill-tag">CapCut Editing</span>
+            <span class="skill-tag">Meta Ads</span>
+            <span class="skill-tag">Content Strategy</span>
+            <span class="skill-tag">Branding</span>
+            <span class="skill-tag">Landing Page Design</span>
+            <span class="skill-tag">HTML & CSS</span>
+            <span class="skill-tag">SEO Basics</span>
+            <span class="skill-tag">Copywriting</span>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="section fade-in">
-        <div class="container">
-            <span class="section-label">Skills</span>
-            <h2>What I Bring to the Table</h2>
-            <div class="skills-list">
-                <span class="skill-tag">AI Tools</span>
-                <span class="skill-tag">Web Design</span>
-                <span class="skill-tag">Graphics Design</span>
-                <span class="skill-tag">Digital Marketing</span>
-                <span class="skill-tag">Branding</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="section fade-in" id="contact">
-        <div class="container">
-            <span class="section-label">Get In Touch</span>
-            <h2>Let's Work Together</h2>
-            <p>Have a project in mind or want to discuss digital strategies? Drop a message below and I will get back to you.</p>
-            
-            <form id="contact-form" class="contact-form">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email Address" required>
-                <textarea name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
-                <button type="submit">Send Message</button>
-                <div id="form-feedback" class="form-feedback"></div>
-            </form>
-        </div>
-    </section>
-    
+<section class="section fade-in" id="contact">
+    <div class="container">
+        <span class="section-label">Get In Touch</span>
+        <h2>Let's Work Together</h2>
+        <p>Have a project in mind or want to discuss digital strategies? Drop a message below and I will get back to you.</p>
+        
+        <form id="contact-form" class="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email Address" required>
+            <textarea name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+            <button type="submit">Send Message</button>
+            <div id="form-feedback" class="form-feedback"></div>
+        </form>
+    </div>
+</section>
     <footer class="fade-in">
         <div class="container">
             <div class="social-links">
