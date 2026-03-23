@@ -10,31 +10,20 @@
         .container { width: 90%; max-width: 1000px; margin: 0 auto; }
         
         /* Header */
-        header { 
-    padding: 20px 0; 
-    border-bottom: 1px solid #eee; 
-}
-.logo { 
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-}
-.logo img {
-    height: 100px; /* লোগোর সাইজ */
-    width: auto; 
-}
-   /* --- Smooth Animations --- */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+        header { padding: 20px 0; border-bottom: 1px solid #eee; }
+        .logo { display: flex; justify-content: center; align-items: center; }
+        .logo img { height: 100px; width: auto; }
         
+        /* --- Smooth Animations --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
         
         /* Hero Section */
         .hero { background-color: #000; color: #fff; padding: 80px 0; text-align: left; }
@@ -69,17 +58,18 @@
 
         @media (max-width: 768px) { .hero { padding: 60px 0; } }
     </style>
+</head>
+<body>
      
-<header>
-    <div class="container">
-        <div class="logo">
-            <img src="logo1.png" alt="NU Logo">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo1.png" alt="NU Logo">
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
-
-    <section class="hero">
+    <section class="hero fade-in">
         <div class="container">
             <span class="hero-label">Digital Creator</span>
             <h1>Empowering Your Digital Presence</h1>
@@ -91,7 +81,7 @@
         </div>
     </section>
 
-    <section class="section">
+    <section class="section fade-in">
         <div class="container">
             <span class="section-label">The Visionary</span>
             <h2>Digital Creator & Future Entrepreneur</h2>
@@ -100,7 +90,7 @@
         </div>
     </section>
 
-    <section class="section">
+    <section class="section fade-in">
         <div class="container">
             <span class="section-label">Expertise</span>
             <div class="expertise-grid">
@@ -116,7 +106,7 @@
         </div>
     </section>
 
-    <footer>
+    <footer class="fade-in">
         <div class="container">
             <div class="social-links">
                 <a href="https://www.facebook.com/share/1DBsiciGKD/" target="_blank">Facebook</a>
@@ -128,18 +118,19 @@
             </div>
         </div>
     </footer>
-<script>
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
-    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('visible');
-            appearOnScroll.unobserve(entry.target);
-        });
-    }, appearOptions);
-    faders.forEach(fader => { appearOnScroll.observe(fader); });
-</script>
+
+    <script>
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                appearOnScroll.unobserve(entry.target);
+            });
+        }, appearOptions);
+        faders.forEach(fader => { appearOnScroll.observe(fader); });
+    </script>
     
 </body>
 </html>
