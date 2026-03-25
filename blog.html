@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nazim Uddin shares insights on AI in content creation, prompt engineering, and modern digital strategies.">
-    <meta name="keywords" content="AI, Content Creation, Prompt Engineering, Digital Marketing, Nazim Uddin">
+    <meta name="description" content="Blog by Nazim Uddin – articles on AI, content creation, and digital strategy.">
+    <meta name="keywords" content="AI, Content Creation, Prompt Engineering, Digital Marketing, Blog">
     <meta name="author" content="Nazim Uddin">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#000000">
     <link rel="canonical" href="https://nazim60.github.io/Nazim/blog.html">
-    <meta property="og:title" content="Nazim Uddin | Blog – The Rise of AI in Content Creation">
-    <meta property="og:description" content="Explore how AI is transforming content creation and why human creativity still matters. Insights from a Digital Creator & AI Consultant.">
+    <meta property="og:title" content="Nazim Uddin | Blog">
+    <meta property="og:description" content="Insights on AI, content creation, and modern digital strategies.">
     <meta property="og:image" content="https://nazim60.github.io/Nazim/profile.png">
     <meta property="og:url" content="https://nazim60.github.io/Nazim/blog.html">
-    <meta property="og:type" content="article">
-    <title>Nazim Uddin | Blog – The Rise of AI in Content Creation</title>
+    <meta property="og:type" content="website">
+    <title>Nazim Uddin | Blog</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,14 +25,10 @@
         .skip-link:focus { top: 0; }
         :root {
             --bg: #ffffff;
-            --bg-alt: #f9f9f9;
-            --bg-input: #f9f9f9;
             --text: #000000;
             --text-muted: #444444;
             --text-label: #666666;
-            --accent: #000000;
             --border: #e8e8e8;
-            --border-card: #dddddd;
             --card-bg: #f9f9f9;
             --nav-bg: rgba(255,255,255,0.97);
             --nav-border: #eeeeee;
@@ -43,14 +39,10 @@
         }
         [data-theme="dark"] {
             --bg: #0a0a0a;
-            --bg-alt: #111111;
-            --bg-input: #1a1a1a;
             --text: #f0f0f0;
             --text-muted: #bbbbbb;
             --text-label: #888888;
-            --accent: #f0f0f0;
             --border: #222222;
-            --border-card: #333333;
             --card-bg: #141414;
             --nav-bg: rgba(10,10,10,0.97);
             --nav-border: #222222;
@@ -99,13 +91,53 @@
         .section { padding: 55px 0; border-bottom: 1px solid var(--border); }
         .section-label { font-size: 12px; text-transform: uppercase; letter-spacing: 4px; font-weight: 700; margin-bottom: 10px; display: block; color: var(--text-label); }
         .section h2 { font-size: 32px; font-weight: 800; margin-bottom: 16px; text-transform: uppercase; }
-        .article-content { max-width: 800px; margin: 0 auto; color: var(--text-muted); font-size: 17px; }
-        .article-content h3 { margin: 1.5em 0 0.5em; font-size: 24px; font-weight: 700; color: var(--text); }
-        .article-content p { margin-bottom: 1.2em; }
-        .article-content ul { margin: 1em 0 1.5em 2em; }
-        .article-content li { margin-bottom: 0.5em; }
-        .article-content .btn { display: inline-block; margin-top: 1em; padding: 12px 28px; background: var(--text); color: var(--bg); text-decoration: none; border-radius: 4px; font-weight: 700; transition: 0.3s; border: 1px solid var(--text); }
-        .article-content .btn:hover { background: var(--bg); color: var(--text); }
+        /* Blog list styles */
+        .blog-list {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        .blog-preview {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 30px;
+        }
+        .blog-preview:last-child {
+            border-bottom: none;
+        }
+        .blog-preview h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        .blog-preview h3 a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .blog-preview h3 a:hover {
+            color: var(--text-label);
+        }
+        .blog-meta {
+            font-size: 13px;
+            color: var(--text-label);
+            margin-bottom: 12px;
+        }
+        .blog-preview p {
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .read-more {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: var(--text);
+            text-decoration: none;
+            border-bottom: 1px solid var(--text);
+            display: inline-block;
+        }
         footer { padding: 60px 0; background-color: #000; color: #fff; text-align: center; }
         [data-theme="dark"] footer { background-color: #050505; }
         .social-links { margin-bottom: 30px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
@@ -153,25 +185,33 @@
         <section class="section fade-in">
             <div class="container">
                 <span class="section-label">Blog</span>
-                <h2>The Rise of AI in Content Creation</h2>
-                <div class="article-content">
-                    <p>Artificial Intelligence has transformed how we create content. From generating images with a single prompt to drafting entire blog posts in seconds, AI tools are everywhere. But does this mean human creators are becoming obsolete? Not at all.</p>
-                    <p>AI is a powerful assistant, not a replacement. It handles repetitive tasks, sparks new ideas, and speeds up workflows. However, the heart of great content still lies in human insight, emotion, and strategy. An AI can write a product description, but it takes a human to tell a brand’s story in a way that truly connects with people.</p>
-                    <h3>How I Use AI in My Work</h3>
-                    <p>As a Digital Creator and AI Consultant, I combine AI tools with creative strategy to deliver high‑impact results. Here’s how:</p>
-                    <ul>
-                        <li><strong>Prompt Engineering</strong> – I craft precise prompts to generate images, video clips, and copy that match the client’s voice.</li>
-                        <li><strong>AI‑Powered Research</strong> – Tools like ChatGPT help me analyse trends and audience behaviour faster, so I can focus on creative direction.</li>
-                        <li><strong>Content Scaling</strong> – AI allows me to produce consistent, high‑quality content across platforms without burning out.</li>
-                    </ul>
-                    <p>The key is to use AI to amplify human creativity, not replace it.</p>
-                    <h3>What This Means for Your Brand</h3>
-                    <p>If you’re a business owner or creator, embracing AI doesn’t mean losing your identity. It means you can focus more on what you love – while AI handles the heavy lifting. The result? More content, better engagement, and a stronger brand presence.</p>
-                    <h3>Ready to Elevate Your Digital Presence?</h3>
-                    <p>I help brands integrate AI into their content strategy, design stunning visuals, and scale their digital footprint. Let’s work together to bring your ideas to life.</p>
-                    <p style="text-align: center; margin-top: 2em;">
-                        <a href="https://nazim60.github.io/Nazim/#contact" class="btn">📩 Get in Touch</a>
-                    </p>
+                <h2>All Articles</h2>
+                <div class="blog-list">
+                    <!-- Article 1 -->
+                    <article class="blog-preview">
+                        <h3><a href="article-ai-content.html">The Rise of AI in Content Creation</a></h3>
+                        <div class="blog-meta">March 25, 2026</div>
+                        <p>Artificial Intelligence has transformed how we create content. From generating images with a single prompt to drafting entire blog posts in seconds, AI tools are everywhere. But does this mean human creators are becoming obsolete? Not at all...</p>
+                        <a href="article-ai-content.html" class="read-more">Read full article →</a>
+                    </article>
+
+                    <!-- Article 2 (example – you can add more by copying the block above) -->
+                    <article class="blog-preview">
+                        <h3><a href="article-prompt-engineering.html">Mastering Prompt Engineering for Better AI Output</a></h3>
+                        <div class="blog-meta">March 20, 2026</div>
+                        <p>Prompt engineering is the art of crafting inputs to get the desired output from AI models. Whether you're using ChatGPT, Midjourney, or other AI tools, the quality of your prompt directly affects the result...</p>
+                        <a href="article-prompt-engineering.html" class="read-more">Read full article →</a>
+                    </article>
+
+                    <!-- Article 3 – add as many as you like -->
+                    <!--
+                    <article class="blog-preview">
+                        <h3><a href="article-3.html">Title</a></h3>
+                        <div class="blog-meta">Date</div>
+                        <p>Teaser text...</p>
+                        <a href="article-3.html" class="read-more">Read full article →</a>
+                    </article>
+                    -->
                 </div>
             </div>
         </section>
