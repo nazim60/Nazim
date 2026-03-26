@@ -952,5 +952,71 @@
             }
         });
     </script>
+    <!-- Toast notification for copy link -->
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+
+const url = encodeURIComponent(location.href);
+const title = encodeURIComponent(document.title);
+
+// Social links
+const fb = document.getElementById("fb");
+if (fb) fb.href = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+
+const ln = document.getElementById("ln");
+if (ln) ln.href = `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}`;
+
+const wa = document.getElementById("wa");
+if (wa) wa.href = `https://wa.me/?text=${title}%20${url}`;
+
+// Toast function
+const toast = document.getElementById("toast");
+let timer;
+function show(msg){
+  toast.textContent = msg;
+  toast.classList.add("show");
+  clearTimeout(timer);
+  timer = setTimeout(()=>toast.classList.remove("show"),2500);
+}
+
+// Copy link
+const copyBtn = document.getElementById("copy");
+if (copyBtn) {
+  copyBtn.onclick = async ()=>{
+    try{
+      if(navigator.clipboard){
+        await navigator.clipboard.writeText(location.href);
+      }else{
+        const ta = document.createElement("textarea");
+        ta.value = location.href;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+      }
+      show("Link copied!");
+    }catch{
+      show("Copy failed!");
+    }
+  };
+}
+
+// Native Share API
+const nativeBtn = document.getElementById("native-share");
+if(nativeBtn && navigator.share){
+  nativeBtn.onclick = ()=>{
+    navigator.share({
+      title: document.title,
+      url: location.href
+    });
+  };
+} else if (nativeBtn) {
+  nativeBtn.style.display = "none";
+}
+
+});
+</script>
 </body>
 </html>
